@@ -7,7 +7,7 @@ use App\User;
 
 class DashboardController extends Controller
 {
-    public function index(){    	
+    public function loadChartData(){    	
     	return response()->json(User::calculateActiveUserPercentageWeekly());
     }
 }

@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/loadChartData', 'DashboardController@loadChartData')->name('loadChartData');

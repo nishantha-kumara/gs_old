@@ -74,7 +74,8 @@ export default{
       var me = this;
           let lineCharts = me.$refs.lineCharts;
           lineCharts.delegateMethod('showLoading', 'Loading...');
-      axios.get('/dashboard').then(function(response){
+      //add lines to chart
+      axios.get('/loadChartData').then(function(response){
           $.each(response.data , function(key, value){
             lineCharts.addSeries(value)
           });
