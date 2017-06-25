@@ -11,7 +11,7 @@ class User extends Model
     protected $fillable = ['user_id', 'created_at', 'onboarding_perentage', 'count_applications', 'count_applications'];
 
     // This function calculate acitve user percentage in a week for each onboarding level
-    public static function calculateActiveUserPercentageWeekly() {
+    public static function calcActiveUserPercentWeekForHighchart() {
 		$weeklyBoardings = array();
 		$weeklyBoardingsPercentage = array();
     	$users = User::orderBy('created_at')->get();
