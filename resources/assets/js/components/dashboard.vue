@@ -52,12 +52,20 @@ export default{
           plotOptions: {
             spline: {
               marker: {
-                radius: 4,
-                lineColor: '#666666',
-                lineWidth: 1
+                enabled: false
               }
             }
           },
+
+        legend: {
+            title: {
+                text: 'Start Date of the Week',
+                style: {
+                    fontWeight: 'bold'
+                }
+            },
+            borderWidth: 2
+        },
           series: []
         }
       }
