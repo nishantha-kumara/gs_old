@@ -1,7 +1,7 @@
 @include('layout/header')
 <div id="app">
     <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">                   
-        <a class="navbar-brand" href="#">Dashboard</a>
+        <a class="navbar-brand" href="#">Templer Dashboard</a>
     </nav>
 
     <div class="container-fluid">

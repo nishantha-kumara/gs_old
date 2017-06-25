@@ -15,8 +15,10 @@ class User extends Model
 		$weeklyBoardings = array();
 		$weeklyBoardingsPercentage = array();
     	$users = User::orderBy('created_at')->get();
+        //loop through each user in database to get his/her completion percentage and account created week.
     	foreach($users as $user) {
     		$date = Carbon::parse($user->created_at);
+            //get the first day of the wee he is cretaed his account
     		$firstDateOfWeek = $date->startOfWeek()->format('Y-m-d');
     		$userProgress = $user->onboarding_perentage;
     		if(!isset($weeklyBoardings[$firstDateOfWeek])) {
@@ -28,6 +30,7 @@ class User extends Model
     		$weeklyBoardings[$firstDateOfWeek][$userProgress] ++;
     	}
 
+        //get active users against completion percentage for every week. 
     	foreach($weeklyBoardings as $key=>$weeklyBoarding) {
     		ksort($weeklyBoarding);
     		array_push($weeklyBoardingsPercentage, array (
@@ -38,16 +41,19 @@ class User extends Model
     	return $weeklyBoardingsPercentage;
     }
 
+    //calcualte percentage of active users against onboarding process completion for week
 	private static function calculatePercentage($onboardPercentageList, $round=1){
 		$data = array();
 	    $sum = array_sum($onboardPercentageList);
 	    $totalNoOfUsers = 0;
 	    $acitiveUsersPercentage = 100;
 
+        // when process start all registerd users are active.
     	array_push(
     		$data,
     		array(0, 100)
     	);
+        //get no of users as percentage who passes the given process completion status in current week.
 	    foreach ($onboardPercentageList as $currentOnboardPercentage => $noOfUsers) {
 	    	array_push(
 	    		$data,
